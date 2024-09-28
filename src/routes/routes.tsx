@@ -8,7 +8,12 @@ import AdminDashboard from "../pages/admin/AdminDashboard";
 import CreateStudent from "../pages/admin/CreateStudent";
 import CreateAdmin from "../pages/admin/CreateAdmin";
 import CreateFaculty from "../pages/admin/CreateFaculty";
-import { adminRoutes } from "./admin.routes";
+import { adminPaths } from "./admin.routes";
+import { routeGenerator } from "../utils/routesGenerator";
+import FacultyDashboard from "../pages/faculty/FacultyDashboard";
+import { facultyPaths } from "./facultyRoutes";
+import StudentDashboard from "../pages/student/StudentDashboard";
+import { studentPaths } from "./studentRoutes";
 
 const router = createBrowserRouter([
   {
@@ -18,18 +23,18 @@ const router = createBrowserRouter([
   {
     path: "/admin",
     element: <App />,
-    children: adminRoutes,
+    children: routeGenerator(adminPaths),
   },
-  //   {
-  //     path: "/faculty",
-  //     element: <App />,
-  //     children: facultyPaths,
-  //   },
-  //   {
-  //     path: "/student",
-  //     element: <App />,
-  //     children: studentPaths,
-  //   },
+  {
+    path: "/faculty",
+    element: <App />,
+    children: routeGenerator(facultyPaths),
+  },
+  {
+    path: "/student",
+    element: <App />,
+    children: routeGenerator(studentPaths),
+  },
   {
     path: "/login",
     element: <Login />,
