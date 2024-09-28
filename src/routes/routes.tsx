@@ -14,6 +14,7 @@ import FacultyDashboard from "../pages/faculty/FacultyDashboard";
 import { facultyPaths } from "./facultyRoutes";
 import StudentDashboard from "../pages/student/StudentDashboard";
 import { studentPaths } from "./studentRoutes";
+import ProtectedRoute from "../components/layout/ProtectedRoute";
 
 const router = createBrowserRouter([
   {
@@ -25,6 +26,16 @@ const router = createBrowserRouter([
     element: <App />,
     children: routeGenerator(adminPaths),
   },
+  // {
+  //   path: "/admin",
+  //   element: (
+  //     <ProtectedRoute>
+  //       {" "}
+  //       // protecting a single route <App />
+  //     </ProtectedRoute>
+  //   ),
+  //   children: routeGenerator(adminPaths),
+  // },
   {
     path: "/faculty",
     element: <App />,
